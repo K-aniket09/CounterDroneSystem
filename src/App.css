@@ -1,0 +1,545 @@
+html,
+body,
+#root {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Segoe UI, sans-serif;
+}
+
+body {
+    background: #0B1120;
+    color: white;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Sidebar */
+.sidebar{
+    width:250px;
+    background:#111827;
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+}
+
+.sidebar h2{
+    color:#60A5FA;
+    margin-bottom:30px;
+    text-align:center;
+}
+
+.sidebar-nav{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+.sidebar-nav a{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    width:100%;
+    height:65px;
+
+    background:#1E293B;
+    color:#FFFFFF;
+
+    text-decoration:none;
+    border-radius:12px;
+
+    font-size:18px;
+    font-weight:600;
+
+    transition:all .3s ease;
+
+    user-select:none;
+    outline:none;
+}
+
+.sidebar-nav a:hover{
+    background:#2563EB;
+    transform:translateX(5px);
+}
+
+.sidebar-nav a:focus{
+    outline:none;
+}
+
+.sidebar-nav a:visited{
+    color:#FFFFFF;
+}
+
+.activeLink{
+    background:#2563EB !important;
+}
+
+/* Main */
+.main {
+    flex: 1;
+    width: 100%;
+    padding: 25px;
+    overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.navbar h1 {
+    font-size: 32px;
+    font-weight: 700;
+
+    margin-left: 70px;
+}
+
+.status {
+    font-size: 22px;
+}
+
+.status-running {
+    color: #22C55E;
+    font-weight: bold;
+}
+
+/* Cards */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.card {
+    background: #1E293B;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    transition: .3s;
+    box-shadow: 0 0 15px rgba(0,0,0,.4);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h3 {
+    color: #CBD5E1;
+    margin-bottom: 15px;
+}
+
+.card h2 {
+    font-size: 32px;
+}
+
+/* Camera */
+.cameraSection {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+    align-items: stretch;
+}
+
+.camera {
+    flex: 3;
+    background: #1E293B;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0,0,0,.4);
+}
+
+.camera h2 {
+    margin-bottom: 20px;
+    color: #60A5FA;
+}
+
+.randomButton{
+    background:#2563EB;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+    margin-bottom:15px;
+    transition:0.3s;
+}
+
+.randomButton:hover{
+    background:#1D4ED8;
+}
+
+.video {
+    height: 350px;
+    border: 3px dashed #475569;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    color: #94A3B8;
+    background: #0F172A;
+    overflow: hidden;
+}
+
+.detection-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.cameraOverlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.cameraOverlay h1 {
+    font-size: 34px;
+    color: white;
+}
+
+.cameraOverlay p {
+    color: #94A3B8;
+    margin: 20px 0;
+}
+
+.systemCard {
+    flex: 1;
+    min-width: 280px;
+    background: #1E293B;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0,0,0,.4);
+}
+
+.systemCard h2 {
+    color: #60A5FA;
+    margin-bottom: 20px;
+}
+
+.systemCard p {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+/* Bottom Section */
+.bottom-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.box {
+    background: #1E293B;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,.4);
+}
+
+.box h2 {
+    margin-bottom: 20px;
+    color: #60A5FA;
+}
+
+.box p {
+    margin-bottom: 12px;
+    font-size: 18px;
+}
+
+.gauge-container {
+    background: #1E293B;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* History and Alerts Grid */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.history {
+    background: #1E293B;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,.4);
+}
+
+.history h2 {
+    margin-bottom: 20px;
+    color: #60A5FA;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background: #0F172A;
+    padding: 15px;
+}
+
+td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #334155;
+}
+
+.threat-high { color: #EF4444; font-weight: bold; }
+.threat-medium { color: #F59E0B; font-weight: bold; }
+.threat-low { color: #22C55E; font-weight: bold; }
+
+.alerts {
+    background: #1E293B;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,.4);
+}
+
+.alerts h2 {
+    margin-bottom: 20px;
+    color: #60A5FA;
+}
+
+.alert {
+    padding: 18px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.highAlert { background: #7F1D1D; }
+.mediumAlert { background: #78350F; }
+.lowAlert { background: #14532D; }
+
+/* Trajectory Section */
+.trajectory-section {
+    background: #1E293B;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,.4);
+    margin-bottom: 30px;
+}
+
+.trajectory-section h2 {
+    color: #60A5FA;
+    margin-bottom: 20px;
+}
+
+/* Mission Status */
+.missionStatus {
+    background: #1E293B;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 0 15px rgba(0,0,0,.4);
+    margin-bottom: 30px;
+}
+
+.missionStatus h2 {
+    color: #60A5FA;
+    margin-bottom: 20px;
+}
+
+.missionGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.missionItem {
+    background: #0F172A;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+}
+
+.missionItem h3 {
+    margin-bottom: 10px;
+    color: #CBD5E1;
+}
+
+.missionItem p {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Footer Status */
+.footerStatus {
+    background: #111827;
+    border-radius: 15px;
+    padding: 18px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(0,0,0,.3);
+}
+
+/* Responsive */
+@media(max-width: 1100px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .bottom-section, .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width: 800px) {
+    .container {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+    }
+    .cards {
+        grid-template-columns: 1fr;
+    }
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    .cameraSection {
+        flex-direction: column;
+    }
+    .missionGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===========================
+   HAMBURGER BUTTON
+=========================== */
+
+.menu-btn{
+
+    position:fixed;
+
+    top:18px;
+
+    left:18px;
+
+    width:50px;
+
+    height:50px;
+
+    background:#111827;
+
+    border:none;
+
+    border-radius:8px;
+
+    color:white;
+
+    font-size:28px;
+
+    cursor:pointer;
+
+    z-index:2000;
+
+    transition:.3s;
+
+}
+
+.menu-btn:hover{
+
+    background:#2563EB;
+
+}
+
+/* ===========================
+   SIDEBAR
+=========================== */
+
+.sidebar{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:250px;
+
+    height:100vh;
+
+    z-index:1500;
+
+    transition:.35s ease;
+
+}
+
+/* Hide Sidebar */
+
+.sidebar.closed{
+
+    transform:translateX(-100%);
+
+}
+
+/* Show Sidebar */
+
+.sidebar.open{
+
+    transform:translateX(0);
+
+}
+
+/* ===========================
+   MAIN CONTENT
+=========================== */
+
+.main{
+
+    flex:1;
+
+    width:100%;
+
+    padding:25px;
+
+    margin-left:250px;
+
+    transition:.35s ease;
+
+}
+
+/* Sidebar Hidden */
+
+.main.full{
+
+    margin-left:0;
+
+}
